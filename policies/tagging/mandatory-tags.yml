@@ -1,0 +1,9 @@
+policies:
+ - name: check-for-mandatory-tags
+   resource: "terraform.aws*"
+   filters:
+     - taggable
+     - or:
+       - tag:Name: absent
+       - tag:Application: absent
+       - tag:Environment: absent
